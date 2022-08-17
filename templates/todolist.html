@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>My To-do App </h1>
+    <div>
+        <h2>Add Item</h2>
+        <form action="/add_todo/" method="post">
+            <input type="text" name="content" placeholder="type here....">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div>
+        <ul>
+            {%for todo_item in todo_items%}
+            <li>{{todo_item.text}}
+                <form action="/delete_todo/{{todo_item.id}}/" method="post">
+                    <button type="submit" style=" color: red;">x</button>
+                </form>
+            </li>
+            {%endfor%}
+
+        </ul>
+    </div>
+
+</body>
+
+</html>
